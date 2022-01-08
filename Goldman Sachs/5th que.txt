@@ -1,0 +1,45 @@
+#include <iostream>
+using namespace std;
+
+
+int Divide(int a, int b)
+{
+    while (a % b == 0)
+        a = a / b;
+        
+    return a;
+}
+
+
+int isUgly(int no)
+{
+    no = Divide(no, 2);
+    no = Divide(no, 3);
+    no = Divide(no, 5);
+
+    if(no==0)
+    return 1;
+    else return 0;
+}
+
+int UglyNo(int n)
+{
+    int i = 1;
+
+    int count = 1; 
+    while (n > count) 
+    {
+        i++;
+        if (isUgly(i))
+            count++;
+    }
+    return i;
+}
+
+int main()
+{
+int x;
+cin>>x;
+cout<<UglyNo(x);
+    return 0;
+}
